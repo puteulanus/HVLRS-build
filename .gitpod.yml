@@ -17,5 +17,6 @@ tasks:
       git clone https://github.com/QSI01/HVLRS
       cd HVLRS/OpenWRT-LEDE
       patch -p1 < ../../gcc9.patch
+      sed -i 's/VERSION_PRODUCT/-j$(nproc) VERSION_PRODUCT/' scripts/build.sh
       ./scripts/build.sh hvlrs build 1.1.0.6 1.1.0.6
       
