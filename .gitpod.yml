@@ -1,11 +1,10 @@
 tasks:
-  - init: |
+  - command: |
       sudo apt-get update
       sudo apt-get install -y util-linux libncurses5-dev libncursesw5-dev gcc g++ binutils bzip2 \
         flex python3 perl make grep diffutils unzip subversion libz-dev libc-dev rsync python2 \
         libxml-parser-perl kmod cpio device-tree-compiler libarchive-zip-perl libc6-i386 lib32stdc++6
-      exit
-  - command: |
+      sudo apt-get remove -y gawk
       mkdir build
       cd build
       wget https://toolchains.bootlin.com/downloads/releases/sources/gawk-4.2.1/gawk-4.2.1.tar.xz
@@ -13,7 +12,7 @@ tasks:
       cd gawk-4.2.1
       ./configure --prefix=/usr --libexecdir=/usr/lib
       make -j$(nproc)
-      make install
+      sudo make install
       cd ../..
       git clone https://github.com/QSI01/HVLRS
       cd HVLRS/OpenWRT-LEDE
