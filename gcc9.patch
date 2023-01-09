@@ -13,3 +13,4 @@
  +#ifndef linux
  +typedef int __kernel_daddr_t;
  +typedef unsigned int __kernel_ino_t;
+ 
